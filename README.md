@@ -87,7 +87,7 @@ clock = time.Clock()
 display.set_caption("Чё смотришь? Стреляй давай!")
 
 mixer.init()
-mixer.music.load('src/space.ogg')
+mixer.music.load('space.ogg')
 mixer.music.play(-1)
 mixer.music.set_volume(0.5)
 
@@ -96,8 +96,8 @@ loose_sound = mixer.Sound('kick.ogg')
 
 font.init()
 title_font = font.SysFont('Comic Sans', 70)
-win = title_font.render('Лох :)', True, GREEN)
-lost = title_font.render('Победа!', True, RED)
+win = title_font.render('Лох :) / dumb', True, GREEN)
+lost = title_font.render('Победа/ Win!', True, RED)
 
 label_font = font.SysFont('Papyrus', 40)
 
@@ -106,14 +106,14 @@ label_font = font.SysFont('Papyrus', 40)
 x1 = -100
 y1 = 30
 background = transform.scale(
-    image.load("src/galaxy.jpg"),
+    image.load("galaxy.jpg"),
     # здесь - размеры картинки
     (WIN_W, WIN_H)
 )
-player = Player(0, 365, 'src/rocket.png', size, size, step)
+player = Player(0, 365, 'rocket.png', size, size, step)
 ufos = sprite.Group()
 for i in range(UFOS):
-    enemy = Enemy('src/ufo.png', 0, 0, 70, 50)
+    enemy = Enemy('ufo.png', 0, 0, 70, 50)
     ufos.add(enemy)
 
 # игровой цикл
@@ -140,7 +140,7 @@ while game:
 
         for collide in sprites_list:
             player.shot += 1
-            enemy = Enemy('src/ufo.png', 0, 0, 70, 50)
+            enemy = Enemy('ufo.png', 0, 0, 70, 50)
             ufos.add(enemy)
         if sprite.spritecollide(player, ufos, False):
             window.blit(win, (100, 200))
